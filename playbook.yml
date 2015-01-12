@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - command: bash -c "curl -sL https://deb.nodesource.com/setup | bash -"
+      sudo: yes
+    - apt: name=nodejs update_cache=yes state=present
+      sudo: yes
+    - command: npm install npm -g
+      sudo: yes
+    - command: npm install rx
+      args:
+        chdir: /vagrant/
